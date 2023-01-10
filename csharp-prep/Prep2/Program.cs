@@ -9,7 +9,7 @@ class Program
         int num = int.Parse(percent);
         Boolean letter = true;
 
-        // num holds the percent now
+        // num holds the percent now 
 
         if (num >= 90) {Console.WriteLine("You got an A."); letter = true;}
         else if (num >= 80) {Console.WriteLine("You got an B."); letter = true;}
