@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning02 World!");
+        job job1 = new job();
+        job1._jobTitle = "Software Engineer";
+        console.WriteLine(job1._jobTitle);
+
     }
 }
