@@ -1,12 +1,13 @@
 using System;
-
-class Program
+public class Job
 {
-    static void Main(string[] args)
+    public string _jobTitle;
+    public string _company;
+    public int _startYear = 9999;
+    public int _endYear = 9999;
+
+    public void Display()
     {
-       public class job
-       {
-        public string _jobTitle = "";
-       }
+        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear}-{_endYear}.");
     }
 }
