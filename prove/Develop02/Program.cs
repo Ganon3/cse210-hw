@@ -116,7 +116,7 @@ class Program {
                         } 
                     else //if does not exist we are going to create
                         {
-                        Console.WriteLine($"There is not exist a {journal_name} file.");
+                        Console.WriteLine($"There doe not exist a {journal_name} file.");
                         validation_loop_on_going = "yes";
                         do {
                             Console.WriteLine($"Would you like to create a journal called {journal_name} (y/n): ");
@@ -213,7 +213,8 @@ class Program {
     // this next part is funtions 
     // becasue i cant fined a way to put funtions in the own file
 
-    static string validation_method( string loop, string answer) // this is to simplify the validation prosses
+   /*
+   static string validation_method( string loop, string answer) // this is work with the do while loop in the options 1 threw 6
     {
         if (answer == "n") 
             {
@@ -227,6 +228,7 @@ class Program {
             Console.WriteLine("");
             return loop;
             }    
-    }      
+    }  
+    */    
 }
 
