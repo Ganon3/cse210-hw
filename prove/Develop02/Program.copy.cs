@@ -1,10 +1,31 @@
 using System.IO; 
 using System.Collections.Generic;
-
-// this place hold all funtions
 class Program 
-{
-static string validation_method( string loop, string answer) // this is work with the do while loop in the options 1 threw 6
+{   // this place hold all funtions
+   
+   static string checkChoice(string choice) 
+   {
+    string on = "on";
+    do{
+        if (choice == "1" || choice == "2" || choice == "3" || choice == "4" || choice == "5" || choice == "6")
+        {
+            return choice;
+            on = "off";
+        }
+
+        else 
+        {
+            Console.WriteLine("Invalid input");
+            choice = Console.ReadLine();
+        }
+
+    } while (on = "off");
+   }
+   
+   
+   
+   
+   static string Do_while(string loop, string answer) // this is work with the do while loop in the options 1 threw 6
     {
         if (answer == "n") 
             {
@@ -18,5 +39,5 @@ static string validation_method( string loop, string answer) // this is work wit
             Console.WriteLine("");
             return loop;
             }    
-    }      
+    }
 }

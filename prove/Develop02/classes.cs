@@ -1,7 +1,49 @@
 using System;
+using System.IO; 
+
+public class Mainn {
+    /*
+    string name;
+    string lastname;
+    */
+     
+    
+    public welcome() 
+    {
+        Console.WriteLine("Jornal App");
+        console.WriteLine("Thank You for using our app");
+       
+    } 
+    public optionss()
+    {
+        Console.WriteLine("Options Bellow");
+        Console.WriteLine("1._ Write");
+        Console.WriteLine("2._ Display");
+        Console.WriteLine("3._ Load");
+        Console.WriteLine("4._ Save");
+        Console.WriteLine("5._ Quit");
+    }
+
+    public appEnd() 
+    {
+        Console.WriteLine("Any unsaved text have been stored to temperary storage");
+        Console.WriteLine("Thank you for choosing Jornal App :)");
+    }
+
+    public string choice()
+    {
+        string choice = Console.ReadLine();
+        return choice;
+    }
+    
+    
+}
+
+
+
 
 public class Prompts {
-    List<string> _different_Prompts = new List<string>() 
+    List<string> _prompts = new List<string>() 
     {"Who was the most interesting person I interacted with today?",
     "What was the best part of my day?", 
     "How did I see the hand of the Lord in my life today?", 
@@ -10,15 +52,72 @@ public class Prompts {
     "if you could say something to someone before you die what would it be", 
     "what would you like to accomplish today"};
     
-    public string randon_prompts()
+    public string gitPrompt()
     {
         Random randon_selector = new Random();
-        int randon_number = randon_selector.Next(_different_Prompts.Count);
-        string randon_promp = _different_Prompts[randon_number];
-        return randon_promp;
+        int randon_number = randon_selector.Next(_prompts.Count);
+        string promp = {_prompts[randon_number];
+        Console.WriteLine($"- {promp}. Press enter to finish");
+        return promp;
     }
-}   // this ^ is for providing promps - BY David Daniel Punch my team mate
+    
 
+    // this ^ is for providing promps - BY David Daniel Punch my team mate
+}   
+public class MakeFlie {
+
+    public void make_file(string _filename)
+    {
+        using (StreamWriter outputFile = new StreamWriter(_filename))
+        {outputFile.WriteLine($"You are in jernal - {_myfile}.");}
+    }
+}
+public class ReadFile {
+    string _jernal;
+
+    public void read_file(string _jernal){
+
+        string[] lines = System.IO.File.ReadAllLines(_jernal);
+        foreach (string line in lines) {System.Console.WriteLine(line);}
+    }
+
+    /*
+    public void git_file(){
+
+    }
+    */
+    
+}
+public class WriteInFile {
+    public string _jernal; 
+    public string _enteryText;
+    public void writingString(string promptt,string _entryText){
+
+        DateTime theCurrentTime = DateTime.Now;
+        string dateText = theCurrentTime.ToShortDateString();
+
+        using (StreamWriter archivo = File.AppendText(_jernal!))
+        {
+            archivo.Write($"{dateText}: ");
+            archivo.WriteLine($"{Promptt}");
+            archivo.WriteLine($"{entryText}");
+        }
+    }
+}   
+public class TempStorage {
+    List<string> tempStoreg = new List<string>();
+
+    public writeInTemp(string promp, string entry)
+    {
+        tempStoreg.Add(promp);
+        tempStoreg.Add(entry);
+        tempStoreg.Add("");
+         
+    }
+} 
+
+
+/*
 public class Read_and_Write{
     public string? _myfile;
     public string _writed_entry = "";
@@ -45,3 +144,4 @@ public class Read_and_Write{
         }
     }
 }   // this ^ is for reading and writing from a unique entry - BY David Daniel Punch my team mate
+*/
