@@ -26,7 +26,7 @@ public class Mainn {
 
     public appEnd() 
     {
-        Console.WriteLine("Any unsaved text have been stored to temperary storage");
+        Console.WriteLine("Any unsaved entries have ben added to TEMP.text");
         Console.WriteLine("Thank you for choosing Jornal App :)");
     }
 
@@ -38,9 +38,6 @@ public class Mainn {
     
     
 }
-
-
-
 
 public class Prompts {
     List<string> _prompts = new List<string>() 
@@ -56,30 +53,52 @@ public class Prompts {
     {
         Random randon_selector = new Random();
         int randon_number = randon_selector.Next(_prompts.Count);
-        string promp = {_prompts[randon_number];
+        string promp = _prompts[randon_number];
         Console.WriteLine($"- {promp}. Press enter to finish");
         return promp;
     }
-    
-
     // this ^ is for providing promps - BY David Daniel Punch my team mate
 }   
-public class MakeFlie {
 
-    public void make_file(string _filename)
-    {
-        using (StreamWriter outputFile = new StreamWriter(_filename))
-        {outputFile.WriteLine($"You are in jernal - {_myfile}.");}
-    }
-}
-public class ReadFile {
-    string _jernal;
+public class Read {
+    // string _jernal;
 
-    public void read_file(string _jernal){
+    /*
+    public void read_file(string journal){
 
-        string[] lines = System.IO.File.ReadAllLines(_jernal);
+        string[] lines = System.IO.File.ReadAllLines(journal);
         foreach (string line in lines) {System.Console.WriteLine(line);}
     }
+    */
+
+    public void CheckAndRead(string filee) {
+
+        if (file.count < 1) { Console.WriteLine("There are no entry yet.");}
+        else 
+        {
+            Console.WriteLine("Your entries are:")
+            foreach (string line in filee)
+            {
+                Console.WriteLine(line);
+            }
+        }
+    }
+
+    public Load_file(string goodJornal, string list)
+    {
+        if (goodJornal == "bad") 
+        {
+            console.WriteLine("This Journal does not exsist yet");
+            console.WriteLine("Please use the save option to make a jurnal");   
+        }    
+        else 
+        {   
+            list.Clear()
+            string[] lines = System.IO.File.ReadAllLines(file);
+            foreach (string line in lines) {list.Add(linee);}  
+        } 
+    }   
+    
 
     /*
     public void git_file(){
@@ -88,60 +107,60 @@ public class ReadFile {
     */
     
 }
+
 public class WriteInFile {
-    public string _jernal; 
-    public string _enteryText;
-    public void writingString(string promptt,string _entryText){
+    //public string _jernal; 
 
-        DateTime theCurrentTime = DateTime.Now;
-        string dateText = theCurrentTime.ToShortDateString();
+    public void writingString(string list){
 
-        using (StreamWriter archivo = File.AppendText(_jernal!))
+        Console.WriteLine("What is the journal name");
+        Console.WriteLine("will override exsisting journal");
+        Console.Write(">");
+        string jornalName = Console.ReadLine();
+
+        using (StreamWriter outputFile = File.AppendText(jornalName))
         {
-            archivo.Write($"{dateText}: ");
-            archivo.WriteLine($"{Promptt}");
-            archivo.WriteLine($"{entryText}");
+            outputFile.WriteLine($"You are in jornal - {jornalName}.");
+            foreach (string line in list) {outputFile.WriteLine(line)}
+            list.Clear()
+        }
+    }
+
+    public void writeInTEMP(string line)
+    {
+        using (StreamWriter outputFile = File.AppendText("TEMP.text"))
+        {
+            foreach (string line in list) {outputFile.WriteLine(line)}
+            list.Clear()
         }
     }
 }   
-public class TempStorage {
-    List<string> tempStoreg = new List<string>();
 
+public class TempStorage {
+    List<string> TStoreg = new List<string>();
+    
+    
     public writeInTemp(string promp, string entry)
-    {
-        tempStoreg.Add(promp);
-        tempStoreg.Add(entry);
-        tempStoreg.Add("");
+    {   
+        DateTime theCurrentTime = DateTime.Now;
+        string dateText = theCurrentTime.ToShortDateString();
+    
+        TStoreg.Add($"{dateText} - {promp}");
+        TStoreg.Add(entry);
+        TStoreg.Add("");
          
     }
 } 
 
-
 /*
-public class Read_and_Write{
-    public string? _myfile;
-    public string _writed_entry = "";
-    
-    public void for_reading_the_file()
+public class MakeFlie {
+
+    public void make_file(string filename)
     {
-        foreach (string line in System.IO.File.ReadLines(_myfile!))
-        {  
-            System.Console.WriteLine(line);  
-        }  
-    }
-    public void creating_a_file()
-    {
-        using (StreamWriter outputFile = new StreamWriter(_myfile!))
+        using (StreamWriter outputFile = new StreamWriter(filename))
         {
-            outputFile.WriteLine($"--------------------{_myfile}--------------------");
-        }
-    } 
-    public void writing_on_file(string rando_pharase, string dateText)
-    {
-        using (StreamWriter archivo = File.AppendText(_myfile!))
-        {
-            archivo.WriteLine($"{_writed_entry}");
+            outputFile.WriteLine($"You are in jornal - {filename}.");
         }
     }
-}   // this ^ is for reading and writing from a unique entry - BY David Daniel Punch my team mate
+}
 */

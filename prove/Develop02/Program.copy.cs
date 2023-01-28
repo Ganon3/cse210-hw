@@ -40,4 +40,13 @@ class Program
             return loop;
             }    
     }
+
+    static string choosFile()
+    {
+        Console.WriteLine("Journal name");
+        string file = Console.ReadLine();
+        if (File.Exists(file)) {return file;}
+        else {return "bad";}
+    }
+   
 }

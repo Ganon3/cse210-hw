@@ -6,8 +6,8 @@ class Program { static void Main(string[] args, string generate_random_prompts) 
     
     Mainn mainn = new Mainn();
     Prompts prompts = new Prompts();
-    MakeFlie makeFile = new MakeFlie();
-    ReadFile readFile = new ReadFile();
+    // MakeFlie makeFile = new MakeFlie();
+    Read read = new Read();
     WriteInFile writeFile = new WriteInFile();
     TempStorage tempStorage = new TempStorage();
     // all my classes
@@ -24,24 +24,27 @@ class Program { static void Main(string[] args, string generate_random_prompts) 
            string promp = Prompts.gitPrompt();
            string entries = Console.ReadLine();
            TempStorage.writeInTemp(promp, entries);
-           foreach (string line in TempStorage.tempStorage)
-                        {
-                        Console.WriteLine(line);
-                        }
-        
+
         }  
-        else if (choice == 2) // To Display texts in timp storage or journal
-        {}
-        else if (choice == 3) // To load saved texts
-        {}
-        else if (choice == 4) // To save temp storage to journal
-        {}
-        else if (choice == 5) {Mainn.appEnd(); app_on = "false";}
+        else if (choice == 2) // To Display texts in timp storage
+        {Read.CheckAndRead(TempStorage.TStoreg);}
 
+        else if (choice == 3) // To load texts on list
+        { 
+            string goodJornal = choosFile();
+            Read.Load_file(goodJornal, TempStorage.STorage);
+        }
+        else if (choice == 4) // To save in a journal
+        {
+            WriteInFile.writingString(TempStorage.STorage);
+        }
+        else if (choice == 5) 
+        {
+            WriteInFile.writeInTRMP(TempStorage.STorage)
+            Mainn.appEnd(); 
+            app_on = "false";
+        }
 
-   
-    
-        
     } while (app_on = "true");
 
 
