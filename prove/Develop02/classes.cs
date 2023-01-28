@@ -1,13 +1,12 @@
 using System;
 using System.IO; 
 
-public class Mainn {
+public class Commun {
 
     /*
     string name;
     string lastname;
     */
-     
     
     public static void welcome() 
     {
@@ -41,20 +40,12 @@ public class Mainn {
 }
 
 public class Prompts {
-    List<string> _prompts = new List<string>() 
-    {"Who was the most interesting person I interacted with today?",
-    "What was the best part of my day?", 
-    "How did I see the hand of the Lord in my life today?", 
-    "What was the strongest emotion I felt today?", 
-    "If I had one thing I could do over today, what would it be?", 
-    "if you could say something to someone before you die what would it be", 
-    "what would you like to accomplish today"};
     
-    public static string gitPrompt()
+    public static string gitPrompt(List<string> list)
     {
         Random randon_selector = new Random();
-        int randon_number = randon_selector.Next(_prompts.Count);
-        string promp = _prompts[randon_number];
+        int randon_number = randon_selector.Next(list.Count);
+        string promp = list[randon_number];
         Console.WriteLine($"- {promp}. Press enter to finish");
         return promp;
     }
@@ -90,13 +81,13 @@ public class Read {
         if (goodJornal == "bad") 
         {
             Console.WriteLine("This Journal does not exsist yet");
-            Console.WriteLine("Please use the save option to make a jurnal");   
+            Console.WriteLine("Please use the save option to make a jurnal");
+            Console.WriteLine("Remimber it must be a .text file");
         }    
         else 
         {   
             string[] lines = System.IO.File.ReadAllLines(goodJornal);
             foreach (string line in lines) {list.Add(line);} 
-            list.Clear(); 
         }   
     }   
     

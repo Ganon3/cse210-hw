@@ -4,28 +4,37 @@ using System.Collections.Generic;
 
 class Program
 { 
-    static void Main(string[] args, string generate_random_prompts) {
+    static void Main(string[] args) {
     
-    Mainn mainn = new Mainn();
-    Prompts prompts = new Prompts();
+    Commun Commun = new Commun();
+    Prompts Prompts = new Prompts();
     // MakeFlie makeFile = new MakeFlie();
-    Read read = new Read();
-    WriteInFile writeFile = new WriteInFile();
-    TempStorage tempStorage = new TempStorage();
+    Read Read = new Read();
+    WriteInFile WriteInFile = new WriteInFile();
+    TempStorage TempStorage = new TempStorage();
     // all my classes
     List<string> TStoreg = new List<string>();
     // TEMP list
+    List<string> prompts = new List<string>() 
+    {"Who was the most interesting person I interacted with today?",
+    "What was the best part of my day?", 
+    "How did I see the hand of the Lord in my life today?", 
+    "What was the strongest emotion I felt today?", 
+    "If I had one thing I could do over today, what would it be?", 
+    "if you could say something to someone before you die what would it be", 
+    "what would you like to accomplish today"};
 
-    Mainn.welcome();
-    string app_on = "true";
+    Commun.welcome();
+    bool on = true;
     do 
-    {
-        Mainn.options();
-        string choice = checkChoice(Mainn.choice()); 
+    {   
+        
+        Commun.options();
+        string choice = Commun.choice(); 
 
         if (choice == "1") // To Write in temp storage
         {
-           string promp = Prompts.gitPrompt();
+           string promp = Prompts.gitPrompt(prompts);
            Console.Write(">");
            string entries = Console.ReadLine();
            TempStorage.writeInTemp(promp, entries, TStoreg);
@@ -46,10 +55,40 @@ class Program
         else if (choice == "5") 
         {
             WriteInFile.writeInTEMP(TStoreg);
-            Mainn.appEnd(); 
-            app_on = "false";
+            Commun.appEnd(); 
+            on = false;
         }
+        else {Console.WriteLine("Invalid input");}
 
-    } while (app_on = "true");
+    } while (on == true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// funtions
+
+    static string choosFile()
+    {
+        Console.WriteLine("Journal name");
+        string file = Console.ReadLine();
+        if (File.Exists(file)) {return file;}
+        else {return "bad";}
+    }
+
 }
 }
