@@ -2,19 +2,20 @@ using System;
 using System.IO; 
 
 public class Mainn {
+
     /*
     string name;
     string lastname;
     */
      
     
-    public welcome() 
+    public void welcome() 
     {
         Console.WriteLine("Jornal App");
         console.WriteLine("Thank You for using our app");
        
     } 
-    public optionss()
+    public void optionss()
     {
         Console.WriteLine("Options Bellow");
         Console.WriteLine("1._ Write");
@@ -24,14 +25,14 @@ public class Mainn {
         Console.WriteLine("5._ Quit");
     }
 
-    public appEnd() 
+    public void appEnd() 
     {
         Console.WriteLine("Any unsaved entries have ben added to TEMP.text");
         Console.WriteLine("Thank you for choosing Jornal App :)");
     }
 
     public string choice()
-    {
+    {   
         string choice = Console.ReadLine();
         return choice;
     }
@@ -71,32 +72,32 @@ public class Read {
     }
     */
 
-    public void CheckAndRead(string filee) {
+    public void CheckAndRead(List<string> list) {
 
-        if (file.count < 1) { Console.WriteLine("There are no entry yet.");}
+        if (list.Count < 1) { Console.WriteLine("There are no entry yet.");}
         else 
         {
-            Console.WriteLine("Your entries are:")
-            foreach (string line in filee)
+            Console.WriteLine("Your entries are:");
+            foreach (string line in list)
             {
                 Console.WriteLine(line);
             }
         }
     }
 
-    public Load_file(string goodJornal, string list)
+    public void Load_file(string goodJornal, List<string> list)
     {
         if (goodJornal == "bad") 
         {
-            console.WriteLine("This Journal does not exsist yet");
-            console.WriteLine("Please use the save option to make a jurnal");   
+            Console.WriteLine("This Journal does not exsist yet");
+            Console.WriteLine("Please use the save option to make a jurnal");   
         }    
         else 
         {   
-            list.Clear()
-            string[] lines = System.IO.File.ReadAllLines(file);
-            foreach (string line in lines) {list.Add(linee);}  
-        } 
+            string[] lines = System.IO.File.ReadAllLines(goodJornal);
+            foreach (string line in lines) {list.Add(line);} 
+            list.Clear(); 
+        }   
     }   
     
 
@@ -111,7 +112,7 @@ public class Read {
 public class WriteInFile {
     //public string _jernal; 
 
-    public void writingString(string list){
+    public void writingString(List<string> list){
 
         Console.WriteLine("What is the journal name");
         Console.WriteLine("will override exsisting journal");
@@ -122,7 +123,7 @@ public class WriteInFile {
         {
             outputFile.WriteLine($"You are in jornal - {jornalName}.");
             foreach (string line in list) {outputFile.WriteLine(line)}
-            list.Clear()
+            list.Clear();
         }
     }
 
@@ -131,7 +132,7 @@ public class WriteInFile {
         using (StreamWriter outputFile = File.AppendText("TEMP.text"))
         {
             foreach (string line in list) {outputFile.WriteLine(line)}
-            list.Clear()
+            list.Clear();
         }
     }
 }   
@@ -139,8 +140,7 @@ public class WriteInFile {
 public class TempStorage {
     List<string> TStoreg = new List<string>();
     
-    
-    public writeInTemp(string promp, string entry)
+    public void writeInTemp(string promp, string entry)
     {   
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
@@ -151,16 +151,3 @@ public class TempStorage {
          
     }
 } 
-
-/*
-public class MakeFlie {
-
-    public void make_file(string filename)
-    {
-        using (StreamWriter outputFile = new StreamWriter(filename))
-        {
-            outputFile.WriteLine($"You are in jornal - {filename}.");
-        }
-    }
-}
-*/

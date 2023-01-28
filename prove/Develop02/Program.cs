@@ -22,6 +22,7 @@ class Program { static void Main(string[] args, string generate_random_prompts) 
         if (choice == 1) // To Write in temp storage
         {
            string promp = Prompts.gitPrompt();
+           Console.Write(">");
            string entries = Console.ReadLine();
            TempStorage.writeInTemp(promp, entries);
 
@@ -40,13 +41,10 @@ class Program { static void Main(string[] args, string generate_random_prompts) 
         }
         else if (choice == 5) 
         {
-            WriteInFile.writeInTRMP(TempStorage.STorage)
+            WriteInFile.writeInTRMP(TempStorage.STorage);
             Mainn.appEnd(); 
             app_on = "false";
         }
 
     } while (app_on = "true");
-
-
 }
-
