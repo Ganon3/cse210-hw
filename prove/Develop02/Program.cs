@@ -30,6 +30,7 @@ class Program
     {   
         
         Commun.options();
+        Console.Write(">");
         string choice = Commun.choice(); 
 
         if (choice == "1") // To Write in temp storage
@@ -85,6 +86,7 @@ class Program
     static string choosFile()
     {
         Console.WriteLine("Journal name");
+        Console.Write(">");
         string file = Console.ReadLine();
         if (File.Exists(file)) {return file;}
         else {return "bad";}

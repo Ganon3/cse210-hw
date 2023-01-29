@@ -10,12 +10,14 @@ public class Commun {
     
     public static void welcome() 
     {
+        Console.WriteLine("");
         Console.WriteLine("Jornal App");
         Console.WriteLine("Thank You for using our app");
        
     } 
     public static void options()
     {
+        Console.WriteLine("");
         Console.WriteLine("Options Bellow");
         Console.WriteLine("1._ Write");
         Console.WriteLine("2._ Display");
@@ -26,6 +28,7 @@ public class Commun {
 
     public static void appEnd() 
     {
+        Console.WriteLine("");
         Console.WriteLine("Any unsaved entries have ben added to TEMP.text");
         Console.WriteLine("Thank you for choosing Jornal App :)");
     }
@@ -68,11 +71,13 @@ public class Read {
         if (list.Count < 1) { Console.WriteLine("There are no entry yet.");}
         else 
         {
+            Console.WriteLine("----VVV----");
             Console.WriteLine("Your entries are:");
             foreach (string line in list)
             {
                 Console.WriteLine(line);
             }
+            Console.WriteLine("---^^^---");
         }
     }
 
@@ -80,6 +85,7 @@ public class Read {
     {
         if (goodJornal == "bad") 
         {
+            Console.WriteLine("");
             Console.WriteLine("This Journal does not exsist yet");
             Console.WriteLine("Please use the save option to make a jurnal");
             Console.WriteLine("Remimber it must be a .text file");
@@ -105,6 +111,7 @@ public class WriteInFile {
 
     public static void writingString(List<string> list){
 
+        Console.WriteLine("");
         Console.WriteLine("What is the journal name");
         Console.WriteLine("will override exsisting journal");
         Console.Write(">");
