@@ -2,17 +2,26 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
-    {
-       
-       bool app_on = true;
-       do {
-        Console.WriteLine("cool beans");
-        string word = Console.ReadLine();
-        
-        if (word == "quit") {app_on = false;}
+    static void Main(string[] args) {
 
-       } while (app_on == true);
+        static void spinerAni(int seconds) {
 
+            List<string> _spinerAni = new List<string>() {"-","\\","|","/","-"};
+
+            DateTime startTime = DateTime.Now;
+            DateTime endTime = startTime.AddSeconds(seconds);
+
+            while (DateTime.Now < endTime) {
+
+                foreach (string s in _spinerAni) {
+
+                    Console.Write(s);
+                    Thread.Sleep(500);
+                    Console.Write("\b \b");
+               }
+           }
+       }
+
+       spinerAni(1);
     }
 }
