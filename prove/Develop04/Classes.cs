@@ -2,9 +2,6 @@ using System;
 
 public class Mainn {
 
-    private List<string> _countDownAni = new List<string>() {"5","4","3","2","1"};
-   
-
     public string options(){
 
         Console.WriteLine($"Menu Options:");
@@ -37,21 +34,12 @@ public class Mainn {
        
 }
 
-
-
 public class Activity {
 
     protected string _activityName = "";
     protected string _activityInfo = "";
     protected string _endMesseg = "";
-    
     protected int _sessionTime = 0;
-    protected void getSessionTime() {
-
-        Console.Write("how long, in seconds, would you like to have for your session? ");
-        _sessionTime = int.Parse(Console.ReadLine());
-        
-    }
 
     protected static void countDownAni(int seconds) {
 
@@ -80,6 +68,15 @@ public class Activity {
             }
         }
     }
+
+
+    protected void getSessionTime() {
+
+        Console.Write("how long, in seconds, would you like to have for your session? ");
+        _sessionTime = int.Parse(Console.ReadLine());
+        
+    }
+
 
     public void display(string _activityname) {
 
@@ -114,13 +111,9 @@ public class Activity {
     }
 }
 
-
-
-
-
 public class BreathingActivity : Activity {
 
-    public void getInfo() {
+    private void getInfo() {
         
         _activityName = "breathing activity";
         _activityInfo = "This activity will help you by walking through breathing in and out. Clear your mined and focus on your breathing";
